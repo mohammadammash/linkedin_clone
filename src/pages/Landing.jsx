@@ -6,7 +6,7 @@ function Landing() {
     <>
       {/* START OF NAVBAR */}
       <nav>
-        <img src={linkedin_full_logo}></img>
+        {/* <img src={linkedin_full_logo}></img> */}
       </nav>
       {/* END OF NAVBAR */}
 
