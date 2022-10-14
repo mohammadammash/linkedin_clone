@@ -1,7 +1,8 @@
 const Button = (props) => {
-  const { btn_class, text } = props;
+  const {  text, type='', showNextInputs} = props;
+  const btn_classes="w-3/4 h-12 rounded-3xl bg-blue text-white";
   return (
-    <button className={btn_class}>
+    <button type={type} className={btn_classes} onClick={showNextInputs}>
         {text}
     </button>
   );
