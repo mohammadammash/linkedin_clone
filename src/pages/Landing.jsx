@@ -3,6 +3,7 @@ import right_section_img from "../assets/landing_right_bg.svg";
 function Landing() {
   return (
     <>
+      {/* START OF LEFT SECTION */}
       <section>
         <h1>Join the biggest professional community</h1>
         <input type="email" placeholder="Email" />
@@ -21,11 +22,21 @@ function Landing() {
           </a>
         </p>
         <button>Agree & Join</button>
-        <p><span>or</span></p>
-        <p>Aleady on linkedIn?
-            <span>Sign in</span>
+        <p>
+          <span>or</span>
+        </p>
+        <p>
+          Aleady on linkedIn?
+          <span>Sign in</span>
         </p>
       </section>
+      {/* END OF LEFT SECTION */}
+
+      {/* START OF RIGHT SECTION */}
+      <section>
+        <img src={right_section_img}></img>
+      </section>
+      {/* END OF RIGHT SECTION */}
     </>
   );
 }
