@@ -8,14 +8,14 @@ import SignupForm from "../components/SignupForm.components";
 import SigninForm from "../components/SigninForm.components";
 
 function Landing() {
-  const ShowSigninModal = () => setShowSigninModal(true);
-  const [showSigninModal, setShowSigninModal] = useState(false);
+  const ShowSigninModal = () => setIsOpenSignin(isOpenSignin => !isOpenSignin);
+  const [isOpenSignin, setIsOpenSignin] = useState(false);
 
   return (
     <>
       <Navbar />
 
-      <div className="flex justify-center">
+      <div className={`flex justify-center ${isOpenSignin && "absolute"}`}>
         <main className="container w-3/4 flex flex-col md:flex-row">
           {/* START OF LEFT SECTION */}
           <section className=" h-3/4 flex flex-col justify-center items-center">
@@ -50,7 +50,7 @@ function Landing() {
         </main>
 
         {/* Signin Modal - hidden by default */}
-        {showSigninModal && <SigninForm />}
+        <SigninForm isOpen={isOpenSignin} setIsOpen={setIsOpenSignin}/>
       </div>
     </>
   );
