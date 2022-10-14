@@ -10,6 +10,10 @@
   @apply w-3/4 h-12 rounded-3xl bg-blue text-white;
 }
 
+.input{
+  @apply border border-black h-10 rounded-sm;
+}
+
 .line-word-wrap:before {
   content: " ";
   height: 0.5px;

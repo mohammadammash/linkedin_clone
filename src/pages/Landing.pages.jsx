@@ -44,9 +44,7 @@ function Landing() {
           </section>
           {/* END OF LEFT SECTION */}
 
-          {/* START OF RIGHT SECTION */}
           <img className="h-3/4" src={right_section_img} alt="landing_image"></img>
-          {/* END OF RIGHT SECTION */}
         </main>
       </div>
 

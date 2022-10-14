@@ -7,11 +7,11 @@ const SignupForm = () => {
   const [signupShowInputs, setSignupShowInputs] = useState(1); //track at which stage of signup to show relevant inputs
 
   return (
-    <form>
+    <form className="flex flex-col w-3/4 gap-2">
       {signupShowInputs === 1 && (
         <>
-          <input name="email" type="email" placeholder="email" />
-          <input name="password" type="password" placeholder="email" />
+          <input className="border border-black h-10 rounded-sm" name="email" type="email" placeholder="email" />
+          <input className="border border-black h-10 rounded-sm" name="password" type="password" placeholder="password" />
           <button className="btn" onClick={showNextInputs}>
             Agree & Join
           </button>
@@ -29,7 +29,7 @@ const SignupForm = () => {
       {signupShowInputs === 3 && (
         <>
           <SelectInput />
-          <input name='phone'/>
+          <input name="phone"/>
           <button className="btn" type="submit">
             Submit
           </button>
