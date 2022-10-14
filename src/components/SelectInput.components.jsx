@@ -1,8 +1,7 @@
 import { countries } from "../constants/countries.constants";
 
-const Input = ({ type }) => {
+const InputSelect = ({ type }) => {
   // SELECT OPTIONS
-  if (type === "country") {
     return (
       <select name="country" className="w-3/4 h-10 border p-l-5 border-black" type={type} placeholder={type}>
         {countries.map(({ country, code }) => (
@@ -12,9 +11,7 @@ const Input = ({ type }) => {
         ))}
       </select>
     );
-  }
 
-  return <input className="w-3/4 h-10 border p-l-5 border-black" name={type} type={type} placeholder={type} />;
 };
 
-export default Input;
+export default InputSelect;

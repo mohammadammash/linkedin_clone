@@ -1,6 +1,6 @@
 import { useState } from "react";
 //components
-import Input from "./Input.components";
+import SelectInput from "./SelectInput.components";
 
 const SignupForm = () => {
   const showNextInputs = () => setSignupShowInputs(signupShowInputs + 1);
@@ -10,8 +10,8 @@ const SignupForm = () => {
     <form>
       {signupShowInputs === 1 && (
         <>
-          <Input type={"email"} />
-          <Input type={"password"} />
+          <input name="email" type="email" placeholder="email" />
+          <input name="password" type="password" placeholder="email" />
           <button className="btn" onClick={showNextInputs}>
             Agree & Join
           </button>
@@ -19,8 +19,8 @@ const SignupForm = () => {
       )}
       {signupShowInputs === 2 && (
         <>
-          <Input type={"name"} />
-          <Input type={"age"} />
+          <input name="name" type="text" placeholder="name" />
+          <input name="age" type="age" placeholder="age" />
           <button className="btn" onClick={showNextInputs}>
             Continue
           </button>
@@ -28,8 +28,8 @@ const SignupForm = () => {
       )}
       {signupShowInputs === 3 && (
         <>
-          <Input type={"country"} />
-          <Input type={"phonenb"} />
+          <SelectInput />
+          <input name='phone'/>
           <button className="btn" type="submit">
             Submit
           </button>

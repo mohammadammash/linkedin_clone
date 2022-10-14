@@ -8,7 +8,7 @@ import SignupForm from "../components/SignupForm.components";
 import SigninForm from "../components/SigninForm.components";
 
 function Landing() {
-  const ShowSigninModal = () => setIsOpenSignin(isOpenSignin => !isOpenSignin);
+  const ShowSigninModal = () => setIsOpenSignin((isOpenSignin) => !isOpenSignin);
   const [isOpenSignin, setIsOpenSignin] = useState(false);
 
   return (
@@ -48,10 +48,10 @@ function Landing() {
           <img className="h-3/4" src={right_section_img} alt="landing_image"></img>
           {/* END OF RIGHT SECTION */}
         </main>
-
-        {/* Signin Modal - hidden by default */}
-        <SigninForm isOpen={isOpenSignin} setIsOpen={setIsOpenSignin}/>
       </div>
+
+      {/* Signin Modal - hidden by default */}
+      <SigninForm isOpen={isOpenSignin} setIsOpen={setIsOpenSignin}/>
     </>
   );
 }
