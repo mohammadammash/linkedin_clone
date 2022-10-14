@@ -4,7 +4,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 //pages components
-import Landing from './pages/Landing';
+import Landing from './pages/Landing.pages';
 
 export const queryClient = new QueryClient();
 
