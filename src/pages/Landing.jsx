@@ -1,8 +1,15 @@
 import right_section_img from "../assets/landing_right_bg.svg";
+import linkedin_full_logo from '../assets/linkedin-full-logo.wine.svg';
 
 function Landing() {
   return (
     <>
+      {/* START OF NAVBAR */}
+      <nav>
+        <img src={linkedin_full_logo}></img>
+      </nav>
+      {/* END OF NAVBAR */}
+
       {/* START OF LEFT SECTION */}
       <section>
         <h1>Join the biggest professional community</h1>
