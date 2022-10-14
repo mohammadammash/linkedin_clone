@@ -1,7 +1,6 @@
 import { useState } from "react";
 //components
 import Input from "./Input.components";
-import Button from "./Button.components";
 
 const SignupForm = () => {
   const showNextInputs = () => setSignupShowInputs(signupShowInputs + 1);
@@ -13,25 +12,30 @@ const SignupForm = () => {
         <>
           <Input type={"email"} />
           <Input type={"password"} />
-          <Button text="Agree & Join" showNextInputs={showNextInputs} />
+          <button className="btn" onClick={showNextInputs}>
+            Agree & Join
+          </button>
         </>
       )}
       {signupShowInputs === 2 && (
         <>
           <Input type={"name"} />
           <Input type={"age"} />
-          <Button text="Continue" showNextInputs={showNextInputs} />
+          <button className="btn" onClick={showNextInputs}>
+            Continue
+          </button>
         </>
       )}
       {signupShowInputs === 3 && (
         <>
           <Input type={"country"} />
           <Input type={"phonenb"} />
-          <Button type="submit" text="Submit" />
+          <button className="btn" type="submit">
+            Submit
+          </button>
         </>
       )}
     </form>
   );
 };
-
 export default SignupForm;

@@ -6,6 +6,10 @@
   @apply relative text-center;
 }
 
+.btn{
+  @apply w-3/4 h-12 rounded-3xl bg-blue text-white;
+}
+
 .line-word-wrap:before {
   content: " ";
   height: 0.5px;
