@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.line-word-wrap {
+  @apply relative text-center;
+}
+
+.line-word-wrap:before {
+  content: " ";
+  height: 0.5px;
+  width: 40%;
+  display: block;
+  position: absolute;
+  background: grey;
+  top: 50%;
+  left: 0;
+}
+
+.line-word-wrap:after {
+  content: " ";
+  height: 0.5px;
+  width: 40%;
+  background: grey;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
