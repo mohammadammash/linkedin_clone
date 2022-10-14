@@ -6,7 +6,7 @@ const Input = ({ type }) => {
     return (
       <select name="country" className="w-3/4 h-10 border p-l-5 border-black" type={type} placeholder={type}>
         {countries.map(({ country, code }) => (
-          <option value={country} code={code}>
+          <option key={code} value={country} code={code}>
             {country}
           </option>
         ))}
