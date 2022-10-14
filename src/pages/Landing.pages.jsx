@@ -11,31 +11,35 @@ function Landing() {
     <>
       <Navbar />
 
-      {/* START OF LEFT SECTION */}
-      <section>
-        <h1>Join the biggest professional community</h1>
-        <Input type={"email"} />
-        <Input type={"password"} />
-        <p>
-          By clicking Agree & Join, you agree to the LinkedIn
-          <AnchorTag aref={user_agreement_link} target={"_blank"} rel={"noreferrer"} text={"User Agreement, "} />
-          <AnchorTag aref={privacy_policy_link} target={"_blank"} rel={"noreferrer"} text={"Privacy Policy, "} />
-          <AnchorTag aref={cookie_policy_link} target={"_blank"} rel={"noreferrer"} text={"Cookie Policy "} />
-        </p>
-        <Button text={"Agree & Join"} />
-        <p>
-          <span>or</span>
-        </p>
-        <p>
-          Aleady on linkedIn?
-          <span>Sign in</span>
-        </p>
-      </section>
-      {/* END OF LEFT SECTION */}
+      <div className="flex justify-center">
+        <main className="container w-3/4 flex flex-col md:flex-row justify-center">
+          {/* START OF LEFT SECTION */}
+          <section className="border border-black h-3/4">
+            <h1>Join the biggest professional community</h1>
+            <Input type={"email"} />
+            <Input type={"password"} />
+            <p>
+              By clicking Agree & Join, you agree to the LinkedIn
+              <AnchorTag aref={user_agreement_link} target={"_blank"} rel={"noreferrer"} text={"User Agreement, "} />
+              <AnchorTag aref={privacy_policy_link} target={"_blank"} rel={"noreferrer"} text={"Privacy Policy, "} />
+              <AnchorTag aref={cookie_policy_link} target={"_blank"} rel={"noreferrer"} text={"Cookie Policy "} />
+            </p>
+            <Button text={"Agree & Join"} />
+            <p>
+              <span>or</span>
+            </p>
+            <p>
+              Aleady on linkedIn?
+              <span>Sign in</span>
+            </p>
+          </section>
+          {/* END OF LEFT SECTION */}
 
-      {/* START OF RIGHT SECTION */}
-      <img src={right_section_img} alt='landing_image'></img>
-      {/* END OF RIGHT SECTION */}
+          {/* START OF RIGHT SECTION */}
+          <img className="border border-black h-3/4" src={right_section_img} alt="landing_image"></img>
+          {/* END OF RIGHT SECTION */}
+        </main>
+      </div>
     </>
   );
 }
