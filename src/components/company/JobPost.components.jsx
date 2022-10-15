@@ -1,10 +1,17 @@
 import viewIcon from "../../assets/view.icon.png";
+import { useNavigate } from "react-router-dom";
 
 const JobPost = () => {
+  const navigate = useNavigate();
+  const showApplicants = () => {
+    //replaced by job name and id when data is retrieved
+    navigate("web_developer", { state: { job_id: 3 } });
+  };
+
   return (
     <div className="border border-black w-full py-3">
       <div>
-        <button className="min:w-1/5 pr-5 pt-3 h-1/4 float-right text-sm bold text-blue">
+        <button onClick={showApplicants} className="min:w-1/5 pr-5 pt-3 h-1/4 float-right text-sm bold text-blue">
           <img className="inline-block pr-1" src={viewIcon} alt="view-icon" />
           View Applicants
         </button>
