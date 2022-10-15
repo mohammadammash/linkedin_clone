@@ -1,3 +1,4 @@
+import viewIcon from '../../assets/view.icon.png';
 //components:
 import Navbar from "../../components/Navbar.components";
 import dummyProfile from "../../assets/dummy-profile.png";
@@ -8,32 +9,31 @@ const Home = () => {
       <Navbar />
       <main className="h-screen flex justify-center mt-5">
         <div className="w-3/5 flex gap-5">
-          <aside className="w-1/4 bg-dark rounded-lg flex flex-col items-center">
-            <img className="rounded-full w-20" src={dummyProfile} alt="profile-img"></img>
+          <aside className="w-1/4 bg-dark rounded-lg flex flex-col items-center text-center">
+            <img className="rounded-full w-20 mt-10" src={dummyProfile} alt="profile-img"></img>
             <h1 className="pt-5 text-white">OMT - Online Money Transfer</h1>
-            <p className="pb-5 text-grey">We offer 100+ premium services to facilitate your payments and financial transactions through more than 1200 locations</p>
-            <div>
-              <p className="text-white">Financial Services</p>
-              <p className="text-grey">Beirut, Sami El Solh - 10,480 followers</p>
+            <p className="pb-5 text-grey text-sm">We offer 100+ premium services to facilitate your payments and financial transactions through more than 1200 locations</p>
+            <div className="text-sm">
+              <p className="text-grey pb-2">Financial Services</p>
+              <p className="text-grey pb-2">Beirut, Sami El Solh - 10,480 followers</p>
             </div>
           </aside>
 
-          <section className="w-3/4 flex flex-col items-center bg-dark rounded-lg">
-            <div className="border border-black w-full flex">
+          <section className="w-3/4 flex flex-col items-center bg-dark rounded-lg ">
+            <div className="border border-black w-full flex items-center justify-between p-5 gap-5">
               <img className="rounded-full w-20" src={dummyProfile} alt="profile-img"></img>
-              <p>Post a Job</p>
+              <p className="text-white border border-white w-full h-1/2 rounded-full pl-5 pt-2 cursor-pointer">Post a Job</p>
             </div>
 
-            <div>
+            <div className="border border-black w-full">
               <div>
-                <img src={dummyProfile} alt="profile-img" />
-                <div>
-                  <p>Full Stack Developer - CRM</p>
-                  <p>ONT - Online Money Transfer</p>
-                  <p>Beirut, Lebanon (On-site)</p>
-                </div>
+                <button className="min:w-1/5 pr-5 pt-3 h-1/4 float-right text-sm bold text-blue"><img className='inline-block pr-1' src={viewIcon} alt='view-icon'/>View Applicants</button>
+                <p className="text-white pl-5 text-lg">Full Stack Developer - CRM</p>
+                <p className="text-grey pl-5 pb-3 text-md">OMT - Online Money Transfer</p>
               </div>
-              <p>18 hours ago</p>
+
+              <p className="text-grey pl-5 text-sm">Beirut, Lebanon (On-site)</p>
+              <p className="text-green pl-5 text-xs inline-block">18 hours ago</p>
             </div>
           </section>
         </div>
