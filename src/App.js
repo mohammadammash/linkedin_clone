@@ -4,7 +4,8 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 //pages components
-import Landing from './pages/Landing.pages';
+import Landing from "./pages/Landing.pages";
+import CompanyHome from "./pages/company/Home.company.jsx";
 
 export const queryClient = new QueryClient();
 
@@ -14,7 +15,8 @@ function App() {
       <ReactQueryDevtools initialIsOpen />
       <BrowserRouter>
         <Routes>
-          <Route exact path={"/"} element={<h1><Landing/></h1>}></Route>
+          <Route exact path="/" element={<Landing />}></Route>
+          <Route exact path="/company" element={<CompanyHome/>}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
