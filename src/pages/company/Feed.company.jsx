@@ -15,7 +15,7 @@ const Feed = () => {
         </p>
       </div>
 
-      <Card />
+      <Card type='job'/>
       <NewJobPopup isOpen={isNewJobModalOpen} setIsOpen={setIsNewJobModalOpen} />
     </>
   );

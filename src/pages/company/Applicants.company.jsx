@@ -10,7 +10,7 @@ const Applicants = () => {
   return (
     <>
     <h1 className="my-5 text-2xl text-white font-bold">All Applicants</h1>
-      <Card />
+      <Card type='applicants-card'/>
     </>
   );
 };
