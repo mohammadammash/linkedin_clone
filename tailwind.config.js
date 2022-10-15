@@ -7,6 +7,8 @@ module.exports = {
         gold: "#8f5849",
         blue: "#2977C9",
         dark: "#1D2226",
+        grey: "#86888A",
+        white: "#CACCCE",
       },
     },
   },
