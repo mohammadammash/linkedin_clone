@@ -7,7 +7,7 @@
 }
 
 .btn{
-  @apply w-3/4 h-12 rounded-3xl bg-blue text-white;
+  @apply rounded-3xl bg-blue text-white;
 }
 
 .input{

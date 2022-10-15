@@ -5,8 +5,6 @@ import * as Yup from "yup";
 import SelectInput from "./SelectInput.components";
 
 const SignupForm = () => {
-  const showNextInputs = () => setSignupShowInputs(signupShowInputs + 1);
-  const [signupShowInputs, setSignupShowInputs] = useState(1); //track at which stage of signup to show relevant inputs
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -46,7 +44,7 @@ const SignupForm = () => {
       <input value={formik.values.phonenb} onChange={formik.handleChange} onBlur={formik.handleBlur} className="input" name="phonenb" type="text" placeholder="phonenb" />
       {formik.touched.phonenb && formik.errors.phonenb && <p className="text-red-500">{formik.errors.phonenb}</p>}
 
-      <button type="submit" className="btn" disabled={!formik.values.phonenb}>
+      <button type="submit" className="btn w-3/4 h-12" disabled={!formik.values.phonenb}>
         Submit
       </button>
     </form>

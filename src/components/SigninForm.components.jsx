@@ -35,7 +35,7 @@ const SigninForm = ({ isOpen, setIsOpen }) => {
 
           <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} className="input" name="password" type="password" placeholder="password" />
           {formik.touched.password && formik.errors.password && <p className="text-red-500">{formik.errors.password}</p>}
-          <button type="submit" className="btn">
+          <button type="submit" className="btn h-12 w-3/4">
             Sign in
           </button>
         </form>
