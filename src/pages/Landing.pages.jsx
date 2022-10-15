@@ -5,6 +5,7 @@ import { useState } from "react";
 import Navbar from "../components/common/Navbar.components";
 import AnchorTag from "../components/common/AnchorTag.components";
 import UserSignupForm from "../components/landing/UserSignupForm.components";
+import CompanySignupForm from "../components/landing/CompanySignupForm.components";
 import SigninForm from "../components/landing/SigninForm.components";
 
 function Landing() {
@@ -21,7 +22,7 @@ function Landing() {
     <>
       <Navbar />
 
-      <div className={`flex justify-center ${isOpenSignin && "absolute"}`}>
+      <div className="flex justify-center">
         <main className="container w-3/4 flex flex-col md:flex-row">
           {/* START OF LEFT SECTION */}
           <section className="my-5 h-3/4 flex flex-col justify-center items-center">
@@ -60,7 +61,7 @@ function Landing() {
       {/* Signin Modal - hidden by default */}
       <SigninForm isOpen={isOpenSignin} setIsOpen={setIsOpenSignin} />
       <UserSignupForm isOpen={isOpenUserSignup} setIsOpen={setIsOpenUserSignup} />
-      <SigninForm isOpen={isOpenSignin} setIsOpen={setIsOpenSignin} />
+      <CompanySignupForm isOpen={isOpenCompanySignup} setIsOpen={setIsOpenCompanySignup} />
     </>
   );
 }

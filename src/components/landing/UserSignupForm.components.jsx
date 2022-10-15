@@ -36,6 +36,7 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
             Close
           </button>
           <Dialog.Title className="text-2xl">User Signup</Dialog.Title>
+          
           <form onSubmit={formik.handleSubmit} onChange={formik.handleChange} className="flex flex-col gap-3">
             <input className="input" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} name="email" type="email" placeholder="email" />
             {formik.touched.email && formik.errors.email && <p className="text-red-500">{formik.errors.email}</p>}
@@ -57,6 +58,7 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
               Submit
             </button>
           </form>
+          
         </Dialog.Panel>
       </div>
     </Dialog>
