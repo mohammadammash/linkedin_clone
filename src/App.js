@@ -5,7 +5,9 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 //pages components
 import Landing from "./pages/Landing.pages";
-import CompanyHome from "./pages/company/Home.company.jsx";
+import CompanyIndex from "./pages/company/Index.company.jsx";
+import CompanyFeed from "./pages/company/Feed.company";
+import CompanyJobApplicants from "./pages/company/Applicants.company.jsx";
 
 export const queryClient = new QueryClient();
 
@@ -16,7 +18,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Landing />}></Route>
-          <Route exact path="/company" element={<CompanyHome/>}></Route>
+
+          <Route exact path="company" element={<CompanyIndex/>}>
+            <Route exact path="" element={<CompanyFeed />} />
+            <Route exact path=":jobtitle" element={<CompanyJobApplicants />} />
+          </Route>
+          
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
