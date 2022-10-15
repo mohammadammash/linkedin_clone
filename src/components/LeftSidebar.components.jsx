@@ -1,6 +1,6 @@
 import dummyProfile from "../assets/dummy-profile.png";
 
-const Sidebar = () => {
+const LeftSidebar = () => {
   return (
     <aside className="w-1/4 bg-dark rounded-lg flex flex-col items-center text-center">
       <img className="rounded-full w-20 mt-10" src={dummyProfile} alt="profile-img"></img>
@@ -14,4 +14,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default LeftSidebar;
