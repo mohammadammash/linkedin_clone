@@ -1,6 +1,6 @@
 import { useState } from "react";
 import dummyProfile from "../../assets/dummy-profile.png";
-import JobPost from "../../components/company/JobPost.components";
+import Card from "../../components/common/Card";
 import NewJobPopup from "../../components/company/NewJobPopup.components";
 
 const Feed = () => {
@@ -15,7 +15,7 @@ const Feed = () => {
         </p>
       </div>
 
-      <JobPost />
+      <Card />
       <NewJobPopup isOpen={isNewJobModalOpen} setIsOpen={setIsNewJobModalOpen} />
     </>
   );

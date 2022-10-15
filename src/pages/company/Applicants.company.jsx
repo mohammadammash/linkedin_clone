@@ -1,5 +1,6 @@
-import dummyProfile from "../../assets/dummy-profile.png";
 import { useLocation } from "react-router-dom";
+//components:
+import Card from "../../components/common/Card";
 
 const Applicants = () => {
   const { state } = useLocation();
@@ -8,7 +9,8 @@ const Applicants = () => {
 
   return (
     <>
-      <h1>Hello</h1>
+    <h1 className="my-5 text-2xl text-white font-bold">All Applicants</h1>
+      <Card />
     </>
   );
 };
