@@ -17,9 +17,10 @@ function Landing() {
 
       <div className={`flex justify-center ${isOpenSignin && "absolute"}`}>
         <main className="container w-3/4 flex flex-col md:flex-row">
+          
           {/* START OF LEFT SECTION */}
-          <section className=" h-3/4 flex flex-col justify-center items-center">
-            <div className="content w-3/4 min:w-1/2 flex flex-col gap-3">
+          <section className="my-5 h-3/4 flex flex-col justify-center items-center">
+            <div className="content w-full lg:w-3/4 min:w-1/2 flex flex-col gap-3">
               <h1 className="text-5xl text-gold mb-5">Join the biggest professional community</h1>
 
               <SignupForm />
