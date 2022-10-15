@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         gold: "#8f5849",
         blue: "#2977C9",
+        dark: "#1D2226",
       },
     },
   },
