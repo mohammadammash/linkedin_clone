@@ -10,6 +10,9 @@ module.exports = {
         grey: "#86888A",
         green: "#00B900",
       },
+      spacing: {
+        128: "40rem",
+      },
     },
   },
   plugins: [],
