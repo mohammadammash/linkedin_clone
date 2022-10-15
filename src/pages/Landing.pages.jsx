@@ -2,10 +2,10 @@ import right_section_img from "../assets/landing_right_bg.svg";
 import { user_agreement_link, privacy_policy_link, cookie_policy_link } from "../constants/variables.constants";
 import { useState } from "react";
 // components:
-import Navbar from "../components/Navbar.components";
-import AnchorTag from "../components/AnchorTag.components";
-import SignupForm from "../components/SignupForm.components";
-import SigninForm from "../components/SigninForm.components";
+import Navbar from "../components/common/Navbar.components";
+import AnchorTag from "../components/common/AnchorTag.components";
+import SignupForm from "../components/landing/SignupForm.components";
+import SigninForm from "../components/landing/SigninForm.components";
 
 function Landing() {
   const ShowSigninModal = () => setIsOpenSignin((isOpenSignin) => !isOpenSignin);

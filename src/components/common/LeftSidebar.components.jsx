@@ -1,4 +1,4 @@
-import dummyProfile from "../assets/dummy-profile.png";
+import dummyProfile from "../../assets/dummy-profile.png";
 
 const LeftSidebar = () => {
   return (

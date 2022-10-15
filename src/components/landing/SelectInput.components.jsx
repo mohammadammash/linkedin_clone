@@ -1,4 +1,4 @@
-import { countries } from "../constants/countries.constants";
+import { countries } from "../../constants/countries.constants";
 
 const InputSelect = ({formik}) => {
   // SELECT OPTIONS

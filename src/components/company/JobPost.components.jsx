@@ -1,4 +1,4 @@
-import viewIcon from "../assets/view.icon.png";
+import viewIcon from "../../assets/view.icon.png";
 
 const JobPost = () => {
   return (

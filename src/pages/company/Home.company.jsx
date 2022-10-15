@@ -1,8 +1,10 @@
 import dummyProfile from "../../assets/dummy-profile.png";
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
 //components:
-import Navbar from "../../components/Navbar.components";
-import LeftSidebar from "../../components/LeftSidebar.components";
-import JobPost from "../../components/JobPost.components";
+import Navbar from "../../components/common/Navbar.components";
+import LeftSidebar from "../../components/common/LeftSidebar.components";
+import JobPost from "../../components/company/JobPost.components";
 
 const Home = () => {
   return (

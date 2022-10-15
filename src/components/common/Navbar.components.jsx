@@ -1,5 +1,5 @@
-import linkedin_full_logo from "../assets/linkedin-full-logo.wine.svg";
-import linkedin_nav_logo from "../assets/linkedin-nav.png";
+import linkedin_full_logo from "../../assets/linkedin-full-logo.wine.svg";
+import linkedin_nav_logo from "../../assets/linkedin-nav.png";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
