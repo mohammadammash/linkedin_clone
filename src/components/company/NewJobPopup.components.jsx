@@ -16,6 +16,7 @@ const NewJobPopup = ({ isOpen, setIsOpen }) => {
     }),
     onSubmit: (values) => {
       console.log(values);
+      setIsOpen(false);
     },
   });
 
