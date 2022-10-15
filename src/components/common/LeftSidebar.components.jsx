@@ -1,6 +1,11 @@
+import { useState } from "react";
 import dummyProfile from "../../assets/dummy-profile.png";
+import EditUserPopup from "../user/EditUserPopup.components";
 
 const LeftSidebar = ({ usertype = "" }) => {
+  const ShowEditUserPopup = () => setShowEditUserPopup((prev) => !prev);
+  const [showEditUserPopup, setShowEditUserPopup] = useState(false);
+
   return (
     <aside className="w-1/4 max-h-96 bg-dark rounded-lg flex flex-col items-center text-center">
       <img className="rounded-full w-20 mt-10" src={dummyProfile} alt="profile-img"></img>
@@ -10,7 +15,13 @@ const LeftSidebar = ({ usertype = "" }) => {
         <p className="text-grey pb-2">Financial Services</p>
         <p className="text-grey pb-2">Beirut, Sami El Solh - 10,480 followers</p>
       </div>
-      {usertype && usertype === "user" && <button className="btn mt-auto mb-5 w-1/2 text-sm h-8">Edit Profile</button>}
+      {/* USER SPECIFIC*/}
+      {usertype && usertype === "user" && (
+        <button onClick={ShowEditUserPopup} className="btn mt-auto mb-5 w-1/2 text-sm h-8">
+          Edit Profile
+        </button>
+      )}
+      <EditUserPopup isOpen={showEditUserPopup} setIsOpen={setShowEditUserPopup} />
     </aside>
   );
 };
