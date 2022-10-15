@@ -10,7 +10,8 @@ import CompanyIndex from "./pages/company/Index.company.jsx";
 import CompanyFeed from "./pages/company/Feed.company";
 import CompanyJobApplicants from "./pages/company/Applicants.company.jsx";
 //user pages
-import UserIndex from "./pages/user/Index.components";
+import UserIndex from "./pages/user/Index.user";
+import UserFeed from "./pages/user/Feed.user";
 
 export const queryClient = new QueryClient();
 
@@ -27,9 +28,9 @@ function App() {
             <Route exact path=":jobtitle" element={<CompanyJobApplicants />} />
           </Route>
 
-          <Route exact path="/" element={<UserIndex />}>
-            <Route exact path="/feed"/>
-            <Route exact path="/jobs" />
+          <Route exact path="" element={<UserIndex />}>
+            <Route exact path="feed" element={<UserFeed/>}/>
+            <Route exact path="jobs" />
           </Route>
 
         </Routes>

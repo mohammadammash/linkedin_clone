@@ -1,6 +1,6 @@
 import { useState } from "react";
 import dummyProfile from "../../assets/dummy-profile.png";
-import Card from "../../components/common/Card";
+import Card from "../../components/common/Card.components";
 import NewJobPopup from "../../components/company/NewJobPopup.components";
 
 const Feed = () => {

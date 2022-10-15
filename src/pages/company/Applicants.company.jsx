@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 //components:
-import Card from "../../components/common/Card";
+import Card from "../../components/common/Card.components";
 
 const Applicants = () => {
   const { state } = useLocation();
