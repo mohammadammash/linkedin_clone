@@ -9,7 +9,8 @@ const JobPost = () => {
           View Applicants
         </button>
         <p className="text-white pl-5 text-lg">Full Stack Developer - CRM</p>
-        <p className="text-grey pl-5 pb-3 text-md">OMT - Online Money Transfer</p>
+        <p className="text-grey pl-5 pb-2 text-md">OMT - Online Money Transfer</p>
+        <p className="text-grey pl-5 pb-3 text-sm">maintain a general ledger and review financial statements for accuracy before preparing reports that will assist senior management in making informed decisions about upcoming projects or years' budgets. They're also responsible for keeping track and recording all transactions within a company.</p>
       </div>
 
       <p className="text-grey pl-5 text-sm">Beirut, Lebanon (On-site)</p>
