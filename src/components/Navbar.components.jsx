@@ -7,8 +7,8 @@ const Navbar = () => {
   const location = useLocation().pathname;
   const isLandingPage = location === "/";
   let image;
-  if (isLandingPage) image = <img className="h-20" src={linkedin_full_logo}></img>;
-  else image = <img className="h-15" src={linkedin_nav_logo}></img>;
+  if (isLandingPage) image = <img className="h-20" src={linkedin_full_logo} alt='logo'></img>;
+  else image = <img className="h-15" src={linkedin_nav_logo} alt="logo"></img>;
 
   return (
     <nav className={`flex justify-center ${isLandingPage ? "bg-white" : "bg-dark"}`}>
