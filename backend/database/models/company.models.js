@@ -23,6 +23,10 @@ export const companySchema = new mongoose.Schema({
     type: String,
     required: "type of services is required",
   },
+  profile_url: {
+    type: String,
+    required: "profile_url is required",
+  },
   location: {
     type: String,
     required: "location is required",

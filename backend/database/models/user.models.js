@@ -23,9 +23,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: "country is required",
   },
-  phonennb: {
+  profile_url: {
     type: String,
-    required: "phonenb is required",
+    required: "profile_url is required",
   },
   followingCompanies: [
     {
