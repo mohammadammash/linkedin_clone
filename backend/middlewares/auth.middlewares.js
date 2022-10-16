@@ -3,9 +3,11 @@ const UserModel = require("../database/models/user.models");
 const { CompanyModel } = require("../database/models/company.models");
 
 const authMiddleware = async (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
+  let token = req.headers.authorization;
 
   if (!token) return res.status(401).json({ message: "Unauthorized" });
+  token = req.headers.authorization.split(" ")[1];
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 

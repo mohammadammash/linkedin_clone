@@ -18,7 +18,7 @@ const userJobRoutes = require("./routes/user_job.routes");
 app.use("/user_job", userJobRoutes); //users-jobs related functions
 
 const companyJobRoutes = require("./routes/company_job.routes");
-app.use("/company_job", companyJobRoutes); //companies-jobs related functions
+app.use("/company", companyJobRoutes); //companies-jobs related functions
 
 //SERVER PORT LISTEN
 app.listen(process.env.SERVER_PORT, (err) => {

@@ -1,5 +1,5 @@
 const updateUser = (req, res) => {
-  res.send("updateUserrr");
+  res.json(req.user);
 };
 
 const userFollowCompany = (req, res) => {
