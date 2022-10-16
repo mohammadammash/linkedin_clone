@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const companySchema = new mongoose.Schema({
+export const companySchema = new mongoose.Schema({
   name: {
     type: String,
     required: "name is required",
@@ -27,6 +27,18 @@ const companySchema = new mongoose.Schema({
     type: String,
     required: "location is required",
   },
+  followers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  postedJobs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Job",
+    },
+  ],
 });
 
 const Company = mongoose.model("Company", companySchema);
