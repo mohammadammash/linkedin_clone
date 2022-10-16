@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
+require("./database/connection.database");
 
 app.use(express.json());
 
 //ROUTES
 const authRoutes = require("./routes/auth.routes");
-qpp.use("/auth", authRoutes); //auth for both user and company
+app.use("/", authRoutes); //auth for both user and company
 
 const userRoutes = require("./routes/user.routes");
 app.use("/user", userRoutes); //normal user edit profile - follow companies
