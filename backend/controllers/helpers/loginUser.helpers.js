@@ -1,5 +1,5 @@
 const UserModel = require("../../database/models/user.models");
-const CompanyModel = require("../../database/models/company.models");
+const { CompanyModel } = require("../../database/models/company.models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -7,11 +7,11 @@ const loginUser = async ({ email, password }) => {
   if (!email || !password) return false;
 
   let user_type = "";
-  const user = await UserModel.findOne({ email }).select("+password");
+  let user = await UserModel.findOne({ email }).select("+password");
   if (user) {
     user_type = "user";
   } else {
-    const user = await CompanyModel.findOne({ email }).select("+password");
+    user = await CompanyModel.findOne({ email }).select("+password");
     if (!user) return false;
     user_type = "company";
   }
@@ -23,7 +23,7 @@ const loginUser = async ({ email, password }) => {
     expiresIn: "1h",
   });
 
-  return token;
+  return { email: user.email, name: user.name, user_type, token };
 };
 
 module.exports = loginUser;
