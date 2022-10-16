@@ -1,6 +1,7 @@
 const UserModel = require("../database/models/user.models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const loginUserHelperFunction = require("./helpers/loginUser.helpers");
 
 const registerUser = async (req, res) => {
   const { name, email, profile_url, password, age, country } = req.body;
@@ -17,7 +18,11 @@ const registerUser = async (req, res) => {
     new_user.country = country;
 
     await new_user.save();
-    return loginUser(req.body);
+    const req = {};
+
+    const result = await loginUserHelperFunction({ email, password });
+    if (!result) res.status(400).send("Invalid Credentials");
+    res.status(200).send(result);
   } catch (err) {
     res.status(400).json({
       message: err.message,
@@ -31,24 +36,10 @@ const registerCompany = (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
-  let user_type = "";
+  const result = await loginUserHelperFunction({ email, password });
 
-  const user = await UserModel.findOne({ email }).select("+password");
-  if (user) {
-    user_type = "user";
-  } else {
-    const user = await CompanyModel.findOne({ email }).select("+password");
-    if (!user) return res.status(404).json({ message: "Invalid Credentials" });
-    user_type = "company";
-  }
-
-  const validCredentials = bcrypt.compareSync(password, user.password);
-  if (!validCredentials) return res.status(404).json({ message: "Invalid Credentials" });
-
-  const token = jwt.sign({ email: user.email, name: user.name, user_type }, process.env.JWT_SECRET_KEY, {
-    expiresIn: "1h",
-  });
-  res.status(200).send(token);
+  if (!result) res.status(400).send("Invalid Credentials");
+  res.status(200).send(result);
 };
 
 module.exports = {
