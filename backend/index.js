@@ -12,8 +12,8 @@ app.use("/user", userRoutes);
 const companyRoutes = require("./routes/company.route");
 app.use("/company", companyRoutes);
 
-const jobRoutes = require("./routes/job.route");
-app.use("/job", jobRoutes);
+const userJobRoutes = require("./routes/user_job.route");
+app.use("/user_job", userJobRoutes);
 
 
 //SERVER PORT LISTEN
