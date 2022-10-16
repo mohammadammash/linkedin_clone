@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 require("./database/connection.database");
+var bodyParser = require('body-parser')
 
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //ROUTES
 const authRoutes = require("./routes/auth.routes");
