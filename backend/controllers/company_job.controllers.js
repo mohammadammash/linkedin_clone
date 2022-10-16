@@ -1,13 +1,13 @@
 
-const getownPostedJobs = () => {
+const getownPostedJobs = (req,res) => {
   res.send("getownPostedJobs - companyjob");
 };
 
-const getJobApplicants = () => {
+const getJobApplicants = (req, res) => {
   res.send("get job Applicants - companyjob");
 };
 
-const postJob = () => {
+const postJob = (req, res) => {
   res.send("post job - companyjob");
 };
 

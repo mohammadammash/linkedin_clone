@@ -1,9 +1,9 @@
-const updateUser = () => {
+const updateUser = (req, res) => {
   res.send("updateUserrr");
 };
 
-const userFollowCompany = () => {
-  res.send("FollwCompanyyy");
+const userFollowCompany = (req, res) => {
+  res.send("FolowCompanyyy");
 };
 
 module.exports = {

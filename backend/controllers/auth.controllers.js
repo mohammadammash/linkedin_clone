@@ -1,12 +1,12 @@
-const registerUser = () => {
+const registerUser = (req, res) => {
   res.send("registerUserrr");
 };
 
-const registerCompany = () => {
+const registerCompany = (req, res) => {
   res.send("registerCompanyyy");
 };
 
-const loginUser = () => {
+const loginUser = (req, res) => {
   res.send("loginUserrr");
 };
 
