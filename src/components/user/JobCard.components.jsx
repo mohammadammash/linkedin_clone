@@ -1,8 +1,14 @@
 import linkedInIcon from "../../assets/linkedin-nav.png";
 import followIcon from "../../assets/follow-icon.png";
 import dummyProfile from "../../assets/dummy-profile.png";
+import { useState } from "react";
+// components:
+import ConfrimApplyPopup from "../../components/user/ConfrimApplyPopup.components";
 
 const JobCard = () => {
+  const ShowConfirmApply = ()=> setShowConfrimApply(prev=>!prev);
+  const [showConfirmApply, setShowConfrimApply] = useState(false);
+
   return (
     <div className="border border-black w-full py-3">
       <button className="min:w-1/5 pr-5 pt-3 h-1/4 float-right text-xs bold text-blue">
@@ -20,10 +26,12 @@ const JobCard = () => {
       <p className="text-grey pl-5 pb-3 text-sm">maintain a general ledger and review financial statements for accuracy before preparing reports that will assist senior management in making informed decisions about upcoming projects or years' budgets. They're also responsible for keeping track and recording all transactions within a company.</p>
       <p className="text-grey pl-5 text-sm">Beirut, Lebanon (On-site)</p>
       <p className="text-green pl-5 text-xs inline-block">18 hours ago</p>
-      <button className="min:w-1/5 pr-5 pb-3 h-1/4 float-right text-xs bold text-white text-opacity-75">
+      <button onClick={ShowConfirmApply} className="min:w-1/5 pr-5 pb-3 h-1/4 float-right text-xs bold text-white text-opacity-75">
         <img className="inline-block pr-1 w-6" src={linkedInIcon} alt="view-icon" />
         Easy Apply
       </button>
+
+      <ConfrimApplyPopup isOpen={showConfirmApply} setIsOpen={setShowConfrimApply}/>
     </div>
   );
 };
