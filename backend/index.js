@@ -4,20 +4,18 @@ require("dotenv").config();
 
 app.use(express.json());
 
-
 //ROUTES
-const userRoutes = require("./routes/user.route");
-app.use("/user", userRoutes);
+const authRoutes = require("./routes/auth.route");
+qpp.use("/auth", authRoutes); //auth for both user and company
 
-const companyRoutes = require("./routes/company.route");
-app.use("/company", companyRoutes);
+const userRoutes = require("./routes/user.route");
+app.use("/user", userRoutes); //normal user edit profile - follow companies
 
 const userJobRoutes = require("./routes/user_job.route");
-app.use("/user_job", userJobRoutes);
+app.use("/user_job", userJobRoutes); //users-jobs related functions
 
 const companyJobRoutes = require("./routes/company_job.route");
-app.use("/company_job", companyJobRoutes);
-
+app.use("/company_job", companyJobRoutes); //companies-jobs related functions
 
 //SERVER PORT LISTEN
 app.listen(process.env.SERVER_PORT, (err) => {
