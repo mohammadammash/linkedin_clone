@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 require("./database/connection.database");
-var bodyParser = require('body-parser')
+var bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //ROUTES
-const authMiddleware = require("./middlewares/auth.middlewares")
+const authMiddleware = require("./middlewares/auth.middlewares");
 const checkIfUserMiddleware = require("./middlewares/checkIfUser.middlewares");
 const checkIfCompanyMiddleware = require("./middlewares/checkIfCompany.middlewares.js");
 
@@ -22,6 +22,8 @@ app.use("/user_job", authMiddleware, checkIfUserMiddleware, userJobRoutes); //us
 
 const companyJobRoutes = require("./routes/company_job.routes");
 app.use("/company", authMiddleware, checkIfCompanyMiddleware, companyJobRoutes); //companies-jobs related functions
+
+app.use("*", (req,res) => res.status(404).json({ message: "Not Found" })); //Any undefined route result
 
 //SERVER PORT LISTEN
 app.listen(process.env.SERVER_PORT, (err) => {
