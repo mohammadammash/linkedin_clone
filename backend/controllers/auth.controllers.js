@@ -31,17 +31,21 @@ const registerCompany = (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
+  let user_type = "";
 
   const user = await UserModel.findOne({ email }).select("+password");
-  if (!user) {
+  if (user) {
+    user_type = "user";
+  } else {
     const user = await CompanyModel.findOne({ email }).select("+password");
-    return res.status(404).json({ message: "Invalid Credentials" });
+    if (!user) return res.status(404).json({ message: "Invalid Credentials" });
+    user_type = "company";
   }
 
   const validCredentials = bcrypt.compareSync(password, user.password);
   if (!validCredentials) return res.status(404).json({ message: "Invalid Credentials" });
 
-  const token = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET_KEY, {
+  const token = jwt.sign({ email: user.email, name: user.name, user_type }, process.env.JWT_SECRET_KEY, {
     expiresIn: "1h",
   });
   res.status(200).send(token);
