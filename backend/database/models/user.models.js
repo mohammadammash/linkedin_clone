@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: "phonenb is required",
   },
+  followingCompanies: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);
