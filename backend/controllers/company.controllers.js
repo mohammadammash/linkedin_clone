@@ -2,9 +2,9 @@ const JobModel = require("../database/models/job.models.js");
 const { CompanyModel } = require("../database/models/company.models");
 
 const getownPostedJobs = async (req, res) => {
-    const { _id: company_id } = req.user;
+  const { _id: company_id } = req.user;
 
-  const {postedJobs} = await CompanyModel.findById(company_id)
+  const { postedJobs } = await CompanyModel.findById(company_id)
     .populate("postedJobs")
     .then((data) => data)
     .catch((err) => res.json({ message: err.message }));
