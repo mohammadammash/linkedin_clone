@@ -1,14 +1,35 @@
+const JobModel = require("../database/models/job.models.js");
+const { CompanyModel } = require("../database/models/company.models");
 
-const getownPostedJobs = (req,res) => {
-  res.send("getownPostedJobs - companyjob");
+const getownPostedJobs = (req, res) => {
+  res.send(req.user);
 };
 
 const getJobApplicants = (req, res) => {
   res.send("get job Applicants - companyjob");
 };
 
-const postJob = (req, res) => {
-  res.send("post job - companyjob");
+const postJob = async (req, res) => {
+  const { title, description, workspace } = req.body;
+  if (!title || !description || !workspace) res.status(400).send({ message: "Invalid Data" });
+
+  const company = req.user;
+  company.password = "empty";
+  company.followers = [];
+  company.postedJobs = [];
+
+  const new_job = new JobModel();
+  new_job.title = title;
+  new_job.description = description;
+  new_job.workspace = workspace;
+  new_job.company = company; //to make sure we don't add unneeded data like postedJobs and followers in JobModel embedded Company
+
+  if (new_job.save())
+    await CompanyModel.updateOne({ _id: company._id }, { $push: { postedJobs: new_job._id } })
+      .then((data) => res.status(200).send({ message: data }))
+      .catch((err) => res.status(400).send({ message: err.message }));
+
+  res.status(400).send("Something went wrong");
 };
 
 module.exports = {

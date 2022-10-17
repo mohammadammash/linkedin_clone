@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {companySchema} = require("./company.models");
+const { companySchema } = require("./company.models");
 
 const jobSchema = new mongoose.Schema({
   title: {
@@ -13,7 +13,7 @@ const jobSchema = new mongoose.Schema({
   workspace: {
     type: String,
     required: "workspace is required",
-    enum: ["On-site, Remotely"],
+    enum: ["On-site", "Remotely"],
   },
   applicants: [
     {
