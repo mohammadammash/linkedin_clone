@@ -1,5 +1,6 @@
 const storeBase64AsImage_helperFunction = require("./helpers/storeImage.helpers");
 const UserModel = require("../database/models/user.models.js");
+const { CompanyModel } = require("../database/models/company.models");
 
 const updateUser = async (req, res) => {
   const { name, country, profile_base64 } = req.body;
@@ -15,8 +16,15 @@ const updateUser = async (req, res) => {
   res.json({ result });
 };
 
-const userFollowCompany = (req, res) => {
-  res.send("FolowCompanyyy");
+const userFollowCompany = async (req, res) => {
+  const { company_id } = req.body;
+  if (!company_id) res.status(400).json({ message: "Invalid Data" });
+
+  const { _id } = req.user;
+
+  await UserModel.updateOne({_id}, { $push: { followingCompanies: company_id } })
+    .then(data=>res.status(200).send({ message: data }))
+    .catch((err) => res.status(400).send({ message: err.message }));
 };
 
 module.exports = {
