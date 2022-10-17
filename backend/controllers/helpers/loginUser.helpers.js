@@ -3,7 +3,7 @@ const { CompanyModel } = require("../../database/models/company.models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const loginUser = async ( email, password) => {
+const loginUser = async (email, password) => {
   if (!email || !password) return false;
 
   let user_type = "";
@@ -20,9 +20,9 @@ const loginUser = async ( email, password) => {
   if (!validCredentials) return false;
 
   const token = jwt.sign({ email: user.email, name: user.name, user_type }, process.env.JWT_SECRET_KEY, {
-    expiresIn: "1h",
+    expiresIn: "24h",
   });
-  
+
   return token;
 };
 
