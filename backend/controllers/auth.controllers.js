@@ -60,9 +60,9 @@ const loginUser = async (req, res) => {
 
   const result = await loginUser_helperFunction(email, password);
 
-  if (!result) res.status(400).json({ message: "Invalid Credentials" });
+  if (!result) res.status(400).send({ message: "Invalid Credentials" });
 
-  res.status(200).json({ token: result });
+  res.status(200).send({ token: result });
 };
 
 module.exports = {

@@ -17,11 +17,8 @@ app.use("/", authRoutes); //auth for both user and company
 const userRoutes = require("./routes/user.routes");
 app.use("/user", authMiddleware, checkIfUserMiddleware, userRoutes); //normal user edit profile - follow companies
 
-const userJobRoutes = require("./routes/user_job.routes");
-app.use("/user_job", authMiddleware, checkIfUserMiddleware, userJobRoutes); //users-jobs related functions
-
-const companyJobRoutes = require("./routes/company_job.routes");
-app.use("/company", authMiddleware, checkIfCompanyMiddleware, companyJobRoutes); //companies-jobs related functions
+const companyRoutes = require("./routes/company.routes");
+app.use("/company", authMiddleware, checkIfCompanyMiddleware, companyRoutes); //companies-jobs related functions
 
 app.use("*", (req,res) => res.status(404).json({ message: "Not Found" })); //Any undefined route result
 
