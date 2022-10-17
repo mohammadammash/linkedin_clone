@@ -1,9 +1,15 @@
 const JobModel = require("../database/models/job.models.js");
 const { CompanyModel } = require("../database/models/company.models");
-const { parse } = require("dotenv");
 
-const getownPostedJobs = (req, res) => {
-  res.send(req.user);
+const getownPostedJobs = async (req, res) => {
+    const { _id: company_id } = req.user;
+
+  const {postedJobs} = await CompanyModel.findById(company_id)
+    .populate("postedJobs")
+    .then((data) => data)
+    .catch((err) => res.json({ message: err.message }));
+
+  res.status(200).send(postedJobs);
 };
 
 const getJobApplicants = async (req, res) => {
