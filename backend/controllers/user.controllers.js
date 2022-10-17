@@ -37,18 +37,20 @@ const getAllJobs = async (req, res) => {
     .catch((err) => res.status(400).send(err.message));
 };
 
-const searchAvailableJobs = (req, res) => {
-  res.send("search Available jobs - user");
-};
+const applyForJob = async (req, res) => {
+  const { _id: user_id } = req.user;
 
-const applyForJob = (req, res) => {
-  res.send("apply for job - user");
+  const { job_id } = req.body;
+  if (!job_id) res.status(400).send({ message: "Invalid Data" });
+
+  await JobModel.updateOne({ job_id }, { $push: { applicants: user_id } })
+    .then((data) => res.status(200).send({ message: data }))
+    .catch((err) => res.status(400).send({ message: err.message }));
 };
 
 module.exports = {
   updateUser,
   userFollowCompany,
   getAllJobs,
-  searchAvailableJobs,
   applyForJob,
 };
