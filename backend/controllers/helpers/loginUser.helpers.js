@@ -23,7 +23,7 @@ const loginUser = async (email, password) => {
     expiresIn: "24h",
   });
 
-  return token;
+  return { token, user_type };
 };
 
 module.exports = loginUser;
