@@ -19,9 +19,9 @@ const registerUser = async (req, res) => {
     new_user.profile_url = profile_url;
     await new_user.save();
 
-    const result = await loginUser_helperFunction(email, password);
+    const { token, user_type } = await loginUser_helperFunction(email, password);
     if (!result) res.status(400).send("Invalid Credentials");
-    res.json({ result });
+    else res.json({ token, user_type });
   } catch (err) {
     res.status(400).send({
       message: err.message,
@@ -45,9 +45,9 @@ const registerCompany = async (req, res) => {
     new_company.profile_url = profile_url;
     await new_company.save();
 
-    const result = await loginUser_helperFunction(email, password);
+    const token = await loginUser_helperFunction(email, password);
     if (!result) res.status(400).send("Invalid Credentials");
-    res.status(200).send({ token: result });
+    else res.status(200).send({ token, user_type });
   } catch (err) {
     res.status(400).send({
       message: err.message,
@@ -58,11 +58,10 @@ const registerCompany = async (req, res) => {
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
-  const result = await loginUser_helperFunction(email, password);
+  const { token, user_type } = await loginUser_helperFunction(email, password);
 
-  if (!result) res.status(400).send({ message: "Invalid Credentials" });
-
-  res.status(200).send({ token: result });
+  if (!token) res.status(400).send({ message: "Invalid Credentials" });
+  else res.status(200).send({ token, user_type });
 };
 
 module.exports = {
