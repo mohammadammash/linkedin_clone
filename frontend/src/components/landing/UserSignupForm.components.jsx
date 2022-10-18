@@ -6,7 +6,7 @@ import dummyProfile from "../../assets/dummy-profile.png";
 import SelectInput from "./SelectInput.components";
 import { useState } from "react";
 import { useEffect } from "react";
-import registerUser_API from "../../services/register.services";
+import { SignupUserPostAPI } from "../../services/register.services";
 
 const UserSignupForm = ({ isOpen, setIsOpen }) => {
   const formik = useFormik({
@@ -27,7 +27,7 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
     }),
     onSubmit: (values) => {
       const { image, ...data } = values;
-      registerUser_API(data, "user");
+      SignupUserPostAPI(data, "user");
       setIsOpen(false);
     },
   });

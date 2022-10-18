@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { Dialog } from "@headlessui/react";
 import { useState, useEffect } from "react";
 import dummyProfile from "../../assets/dummy-profile.png";
-import registerUser_API from "../../services/register.services";
+import {SignupUserPostAPI} from "../../services/register.services";
 
 const CompanySignupForm = ({ isOpen, setIsOpen }) => {
   const formik = useFormik({
@@ -27,7 +27,7 @@ const CompanySignupForm = ({ isOpen, setIsOpen }) => {
     }),
     onSubmit: (values) => {
       const { image, ...data } = values;
-      registerUser_API(data, "company");
+      SignupUserPostAPI(data, "company");
       setIsOpen(false);
     },
   });

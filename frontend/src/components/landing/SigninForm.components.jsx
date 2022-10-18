@@ -1,6 +1,7 @@
 import { Dialog } from "@headlessui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { LoginUserPostAPI } from "../../services/register.services";
 
 const SigninForm = ({ isOpen, setIsOpen }) => {
   const formik = useFormik({
@@ -13,7 +14,7 @@ const SigninForm = ({ isOpen, setIsOpen }) => {
       password: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      LoginUserPostAPI(values);
     },
   });
 
