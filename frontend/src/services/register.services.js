@@ -1,4 +1,5 @@
 import axios from "axios";
+import authenticateCurrentUser_navigateFunction from "../navigations/authentication.navigations";
 import { baseURL, generalConsoleLog } from "../constants/variables.constants";
 const registerUserURL = `${baseURL}/new_user`;
 const registerCompanyURL = `${baseURL}/new_company`;
@@ -9,13 +10,14 @@ const registerUserAPI = async (values, user_type) => {
       .post(registerCompanyURL, values)
       .then((data) => data)
       .catch((err) => err);
-    generalConsoleLog("company", values);
+    authenticateCurrentUser_navigateFunction("company", response.data.token);
+    //
   } else if (user_type === "user") {
     const response = await axios
       .post(registerUserURL, values)
       .then((data) => data)
       .catch((err) => err.message);
-    generalConsoleLog("user", response);
+    authenticateCurrentUser_navigateFunction("user", response.data.result);
   }
 };
 
