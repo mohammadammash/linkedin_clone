@@ -3,22 +3,36 @@ import authenticateCurrentUser_navigateFunction from "../navigations/authenticat
 import { baseURL, generalConsoleLog } from "../constants/variables.constants";
 const registerUserURL = `${baseURL}/new_user`;
 const registerCompanyURL = `${baseURL}/new_company`;
+const LoginURL = `${baseURL}/login`;
 
-const registerUserAPI = async (values, user_type) => {
+export const SignupUserPostAPI = async (values, user_type) => {
   if (user_type === "company") {
     const response = await axios
-      .post(registerCompanyURL, values)
+      .post(registerCompanyURL, values, {
+        headers: { "Content-Type": "application/json" },
+      })
       .then((data) => data)
       .catch((err) => err);
     authenticateCurrentUser_navigateFunction("company", response.data.token);
     //
   } else if (user_type === "user") {
     const response = await axios
-      .post(registerUserURL, values)
+      .post(registerUserURL, values, {
+        headers: { Accept: "application/json" },
+      })
       .then((data) => data)
       .catch((err) => err.message);
-    authenticateCurrentUser_navigateFunction("user", response.data.result);
+    authenticateCurrentUser_navigateFunction("user", response.data.token);
   }
 };
 
-export default registerUserAPI;
+export const LoginUserPostAPI = async (values) => {
+  const response = await axios
+    .post(LoginURL, values, {
+      headers: { Accept: "application/json" },
+    })
+    .then((data) => data)
+    .catch((err) => console.log(err.response));
+
+  authenticateCurrentUser_navigateFunction(response.data.user_type, response.data.token);
+};
