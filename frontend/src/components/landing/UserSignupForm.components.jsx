@@ -28,8 +28,7 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
     onSubmit: (values) => {
       const { image, ...data } = values;
       registerUser_API(data, "user");
-      // console.log(values);
-      // setIsOpen(false);
+      setIsOpen(false);
     },
   });
 
@@ -45,7 +44,7 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      const base64 = reader.result;
+      const base64 = reader.result.replace("data:", "").replace(/^.+,/, "");
       setBase64String(base64);
     };
     reader.onerror = function (error) {
