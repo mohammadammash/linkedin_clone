@@ -6,6 +6,7 @@ import dummyProfile from "../../assets/dummy-profile.png";
 import SelectInput from "./SelectInput.components";
 import { useState } from "react";
 import { useEffect } from "react";
+import registerUser_API from "../../services/register.services";
 
 const UserSignupForm = ({ isOpen, setIsOpen }) => {
   const formik = useFormik({
@@ -25,8 +26,10 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
       profile_base64: Yup.string().required("Profile Image Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
-      setIsOpen(false);
+      const { image, ...data } = values;
+      registerUser_API(data, "user");
+      // console.log(values);
+      // setIsOpen(false);
     },
   });
 
@@ -88,7 +91,7 @@ const UserSignupForm = ({ isOpen, setIsOpen }) => {
               <label className="w-1/2 h-1/2" htmlFor="img-show">
                 <img className="w-full h-full" src={profileImageShown} alt="profile-pic" />
               </label>
-              <input className="hidden" id="img-show" name="image" type="file" onChange={updateProfileShown} onBlur={formik.handleBlur} />
+              <input className="hidden" id="img-show" type="file" onChange={updateProfileShown} onBlur={formik.handleBlur} />
               {formik.touched.profile_base64 && formik.errors.profile_base64 && <p className="text-red-500">{formik.errors.profile_base64}</p>}
             </div>
             <button type="submit" className="btn w-full h-12 my-5">

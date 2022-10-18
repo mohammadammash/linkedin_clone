@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { Dialog } from "@headlessui/react";
 import { useState, useEffect } from "react";
 import dummyProfile from "../../assets/dummy-profile.png";
+import registerUser_API from "../../services/register.services";
 
 const CompanySignupForm = ({ isOpen, setIsOpen }) => {
   const formik = useFormik({
@@ -25,8 +26,9 @@ const CompanySignupForm = ({ isOpen, setIsOpen }) => {
       profile_base64: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
-      setIsOpen(false);
+      const { image, ...data } = values;
+      registerUser_API(data, "company");
+      // setIsOpen(false);
     },
   });
 
@@ -92,7 +94,7 @@ const CompanySignupForm = ({ isOpen, setIsOpen }) => {
               <label className="w-1/2 h-1/2" htmlFor="img-show">
                 <img className="w-full h-full" src={profileImageShown} alt="profile-pic" />
               </label>
-              <input className="hidden" id="img-show" name="image" type="file" onChange={updateProfileShown} onBlur={formik.handleBlur} />
+              <input className="hidden" id="img-show" type="file" onChange={updateProfileShown} onBlur={formik.handleBlur} />
               {formik.touched.profile_base64 && formik.errors.profile_base64 && <p className="text-red-500">{formik.errors.profile_base64}</p>}
             </div>
 
