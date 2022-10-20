@@ -12,3 +12,8 @@ export const generalConsoleLog = (title, data) => {
   console.log(data);
   console.log("---------------");
 };
+
+export const getAuthToken = () => {
+  const token = localStorage.getItem("token");
+  return token;
+};
