@@ -5,6 +5,7 @@ const registerUserURL = `${baseURL}/new_user`;
 const registerCompanyURL = `${baseURL}/new_company`;
 const LoginURL = `${baseURL}/login`;
 
+
 export const SignupUserPostAPI = async (values, user_type) => {
   if (user_type === "company") {
     const response = await axios
@@ -25,6 +26,7 @@ export const SignupUserPostAPI = async (values, user_type) => {
     authenticateCurrentUser_navigateFunction("user", response.data.token);
   }
 };
+
 
 export const LoginUserPostAPI = async (values) => {
   const response = await axios
