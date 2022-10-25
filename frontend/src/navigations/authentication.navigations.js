@@ -1,4 +1,4 @@
-const authenticateCurrentUser = (user_type, token) => {
+const authenticateCurrentUser = ( user_type, token ) => {
   if (user_type === "user") {
     localStorage.setItem("token", JSON.stringify(token));
     window.location.href = "/feed";

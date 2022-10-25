@@ -4,6 +4,7 @@ import dummyProfile from "../../assets/dummy-profile.png";
 import { useState } from "react";
 // components:
 import ConfrimApplyPopup from "../../components/user/ConfrimApplyPopup.components";
+const my_id = "634cfa58d0f53ad6917cb458";
 
 const JobCard = ({job}) => {
   const ShowConfirmApply = ()=> setShowConfrimApply(prev=>!prev);

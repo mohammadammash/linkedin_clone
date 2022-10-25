@@ -1,9 +1,13 @@
 import { Dialog } from "@headlessui/react";
 import { useFormik } from "formik";
+import { useState } from "react";
 import * as Yup from "yup";
-import { LoginUserPostAPI } from "../../services/register.services";
+import { useLoginUser } from "../../query/useGetJobs";
+import { useMutation } from "@tanstack/react-query";
 
 const SigninForm = ({ isOpen, setIsOpen }) => {
+  const {mutate} = useLoginUser();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -14,7 +18,7 @@ const SigninForm = ({ isOpen, setIsOpen }) => {
       password: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      LoginUserPostAPI(values);
+      mutate(values);
     },
   });
 

@@ -1,17 +1,8 @@
 import JobCard from "../../components/user/JobCard.components";
-import { useEffect, useState } from "react";
-import { getAllJobs } from "../../services/getAllJobs.services";
+import { useGetJobs } from "../../query/useGetJobs";
 
 const Feed = () => {
-  const [allJobs, setAllJobs] = useState([]);
-
-  const getAllJobs_UserAPI = async () => {
-    setAllJobs(await getAllJobs());
-    console.log('hey');
-  };
-  useEffect(() => {
-    getAllJobs_UserAPI();
-  }, []);
+const { data: allJobs, isLoading: isLoadingAllJobs } = useGetJobs();
 
   return (
     <section>

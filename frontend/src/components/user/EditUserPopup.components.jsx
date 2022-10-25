@@ -5,12 +5,12 @@ import * as Yup from "yup";
 const EditUserPopup = ({ isOpen, setIsOpen }) => {
   const formik = useFormik({
     initialValues: {
-      email: "mhmd@gmail.com",
-      password: "",
+      name: "",
+      description: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Required"),
-      password: Yup.string().required("Required"),
+      name: Yup.string().required("Required"),
+      description: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
       console.log(values);
@@ -27,13 +27,13 @@ const EditUserPopup = ({ isOpen, setIsOpen }) => {
           <Dialog.Title className="text-2xl">Edit Profile</Dialog.Title>
 
           <form onSubmit={formik.handleSubmit} onChange={formik.handleChange} className="flex flex-col gap-3">
-            <input value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} className="input" name="email" type="email" placeholder="email" />
-            {formik.touched.email && formik.errors.email && <p className="text-red-500">{formik.errors.email}</p>}
+            <input value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} className="input" name="name" type="name" placeholder="name" />
+            {formik.touched.name && formik.errors.name && <p className="text-red-500">{formik.errors.name}</p>}
 
-            <input value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} className="input" name="password" type="password" placeholder="password" />
-            {formik.touched.password && formik.errors.password && <p className="text-red-500">{formik.errors.password}</p>}
+            <input value={formik.values.description} onChange={formik.handleChange} onBlur={formik.handleBlur} className="input" name="description" type="text" placeholder="description" />
+            {formik.touched.description && formik.errors.description && <p className="text-red-500">{formik.errors.description}</p>}
             <button type="submit" className="btn h-12 my-5">
-              Sign in
+              Submit Change
             </button>
           </form>
         </Dialog.Panel>
